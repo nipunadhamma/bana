@@ -1,199 +1,118 @@
 <!DOCTYPE html>
-<html lang="si">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nipunadhamma Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Dashboard</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+<body class="bg-gray-100 font-sans text-gray-700">
 
-    <header class="bg-white shadow-sm p-4 flex justify-between items-center border-b border-gray-200">
-        <button class="text-2xl p-2 hover:bg-gray-100 rounded">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        <div id="site-title" class="font-bold text-xl text-blue-900">Nipunadhamma</div>
-        <div class="w-40 h-8 bg-gray-200 rounded border border-gray-300 flex items-center justify-center text-xs text-gray-500">Search / Actions</div>
-    </header>
+  <!-- Header -->
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <button class="focus:outline-none">
+      <!-- Hamburger icon -->
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+    <div id="search-placeholder" class="text-gray-500">Search...</div>
+  </header>
 
-    <main class="flex-grow p-4 max-w-7xl mx-auto w-full space-y-6">
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-            <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex flex-col justify-center items-center">
-                <span class="text-xs text-gray-400 uppercase font-bold tracking-wider">വർഷය / Year</span>
-                <span id="display-year" class="text-2xl font-bold text-gray-700 mt-1">2026</span>
-            </div>
-            
-            <div class="bg-white p-4 rounded-lg shadow border border-gray-200 md:col-span-2 flex flex-col justify-between min-h-[100px]">
-                <div id="display-logo-name" class="font-bold text-xl text-blue-800">නිපුණධම්ම</div>
-                <div class="flex justify-between text-xs text-red-600 font-semibold px-2 mt-2">
-                    <span id="display-short-year">26-Short</span>
-                    <span id="display-time">00:00:00 PM</span>
-                </div>
-            </div>
+    <!-- Top Stats Section -->
+    <section id="top-stats" class="bg-white p-4 rounded shadow">
+      <h2 class="text-xl font-semibold mb-2">Top Stats</h2>
+      <div id="stats-content">Loading stats...</div>
+    </section>
 
-            <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex flex-col justify-center items-center">
-                <span class="text-xs text-gray-400 uppercase font-bold tracking-wider">වේලාව / Clock</span>
-                <div id="live-clock" class="text-2xl font-bold text-emerald-600 mt-1">00:00:00</div>
-            </div>
-        </div>
+    <!-- Central Content Blocks -->
+    <section class="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-4">
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center items-stretch">
-            <div class="bg-white p-6 rounded-lg shadow border border-gray-200 flex flex-col justify-center items-center order-2 md:order-1">
-                <h3 class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2">ඊළඟ පෝය දිනය</h3>
-                <span id="display-poya" class="font-bold text-lg text-amber-600">මැදින් පුර පසළොස්වක පෝය</span>
-                <span class="text-gray-400 font-bold text-sm mt-2">②</span>
-            </div>
+      <!-- Poya -->
+      <div id="poya" class="bg-white p-4 rounded shadow">Loading Poya...</div>
 
-            <div class="bg-white p-6 rounded-lg shadow border border-blue-300 bg-blue-50/50 flex flex-col justify-center items-center order-1 md:order-2 min-h-[160px]">
-                <h3 class="font-bold text-md text-blue-900 mb-2 border-b pb-1 w-full">දවසේ දහම් වැකිය</h3>
-                <p id="display-vakya" class="text-lg font-medium text-gray-800 my-2">"ආරෝග්‍යපරමා ලාභා - සන්තුට්ඨිපරමං ධනං"</p>
-                <span class="text-gray-400 font-bold text-sm mt-2">①</span>
-            </div>
+      <!-- Dhamma Vakya -->
+      <div id="dhamma-vakya" class="bg-white p-4 rounded shadow">Loading Dhamma Vakya...</div>
 
-            <div class="bg-white p-6 rounded-lg shadow border border-gray-200 flex flex-col justify-center items-center order-3">
-                <h3 class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2">දිනය</h3>
-                <span id="display-day-name" class="font-bold text-xl text-blue-800">සඳුදා</span>
-                <span class="text-gray-400 font-bold text-sm mt-2">③</span>
-            </div>
-        </div>
+      <!-- Day Name -->
+      <div id="day-name" class="bg-white p-4 rounded shadow">Loading Day Name...</div>
+    </section>
 
-        <div class="bg-white border border-gray-200 rounded-lg shadow p-4 text-center">
-            <h3 class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-3 text-left">පින්තූර / Banners</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <img id="img-pc-left" class="hidden md:block w-full h-32 object-cover rounded shadow-sm" src="https://via.placeholder.com/400x150" alt="PC Left">
-                <img id="img-mobile-center" class="w-full h-32 object-cover rounded shadow-sm border-2 border-orange-400" src="https://via.placeholder.com/400x150" alt="Mobile Center">
-                <img id="img-pc-right" class="hidden md:block w-full h-32 object-cover rounded shadow-sm" src="https://via.placeholder.com/400x150" alt="PC Right">
-            </div>
-        </div>
+    <!-- Image Gallery -->
+    <section id="image-gallery" class="bg-white p-4 rounded shadow aspect-video">
+      <h2 class="text-xl font-semibold mb-2">Image Gallery</h2>
+      <div id="images" class="w-full h-full flex items-center justify-center">Loading images...</div>
+    </section>
 
-        <div class="space-y-3">
-            <div class="font-bold text-md flex items-center gap-2 text-gray-700 uppercase tracking-wider">
-                <i class="fa-solid fa-video text-red-500"></i>
-                <span id="display-video-title">Video - [ කොටස 01 ]</span>
-            </div>
-            <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                </div>
-        </div>
+    <!-- Video Grid -->
+    <section id="video-grid" class="bg-white p-4 rounded shadow aspect-video">
+      <h2 class="text-xl font-semibold mb-2">Video</h2>
+      <div id="video" class="w-full h-full flex items-center justify-center">Loading video...</div>
+    </section>
 
-        <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="font-bold text-md text-emerald-800 flex items-center gap-2">
-                <i class="fa-solid fa-music"></i>
-                <span id="display-audio-title">දේශනා ශ්‍රවණය</span>
-            </div>
-            <div class="w-full sm:w-2/3">
-                <audio id="audio-player" controls class="w-full">
-                    <source id="audio-source" src="" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-        </div>
+    <!-- Audio Player -->
+    <section id="audio-player" class="bg-white p-4 rounded shadow">
+      <h2 class="text-xl font-semibold mb-2">Audio</h2>
+      <audio id="audio" controls class="w-full">
+        Your browser does not support the audio element.
+      </audio>
+    </section>
 
-    </main>
+    <!-- Live Clock -->
+    <section class="col-span-1 md:col-span-3 bg-white p-4 rounded shadow text-center">
+      <h2 class="text-xl font-semibold mb-2">Current Time</h2>
+      <div id="clock" class="text-2xl font-mono">Loading time...</div>
+    </section>
 
-    <footer class="bg-gray-800 text-white text-center p-3 text-xs mt-10">
-        &copy; 2026 Nipunadhamma. All Rights Reserved.
-    </footer>
+  </main>
 
-    <script>
-        // ==========================================================
-        //  --- මෙතනට ඔබේ දත්ත ඇතුළත් කරන්න (DATA INPUT AREA) ---
-        // ==========================================================
-        
-        const MY_DASHBOARD_DATA = {
-            // මූලික තොරතුරු
-            year: "2026",
-            shortYear: "'26 බුද්ධ වර්ෂය",
-            timeText: "පස්වරු 4.30",
-            logoName: "නිපුණධම්ම ප්‍රධාන පීඨය",
-            
-            // මැද කොටසේ දත්ත
-            poyaDay: "මැදින් පුර පසළොස්වක පෝය දිනය",
-            dhammaVakya: "“නත්ථි සන්ති පරං සුඛං” (නිවනට වඩා වෙනත් සැපයක් නැත)",
-            dayName: "සඳුදා දිනය",
-            
-            // පින්තූර (Images ලින්ක්ස් හෝ ෆයිල් නම් ඇතුළත් කරන්න)
-            images: {
-                pcLeft: "https://images.unsplash.com/photo-1609137144813-2dbe4889fc66?w=400", // ඕනෑම image link එකක්
-                mobileCenter: "https://images.unsplash.com/photo-1542362567-b07eac79094d?w=400", 
-                pcRight: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400"
-            },
-            
-            // වීඩියෝ ලින්ක්ස් (YouTube Embed ID එක හෝ සෘජු වීඩියෝ ලින්ක් එක)
-            videoSectionTitle: "වීඩියෝ දේශනා - [ නවතම කොටස ]",
-            videos: [
-                { title: "ධර්ම දේශනාව 01", embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" }, // YouTube Embed ලින්ක් එකක්
-                { title: "ධර්ම දේශනාව 02", embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-                { title: "ධර්ම දේශනාව 03", embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
-            ],
-            
-            // ඕඩියෝ (MP3 ලින්ක් එක)
-            audioTitle: "සතිපට්ඨාන සූත්‍ර දේශනාව (MP3 Audio)",
-            audioFileUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" // මෙතනට MP3 ලින්ක් එක දෙන්න
-        };
+  <!-- JavaScript for dynamic content -->
+  <script>
+    // Example data object
+    const MY_DASHBOARD_DATA = {
+      stats: "Total Users: 1234",
+      poya: "Poya Date: 15th March",
+      dhammaVakya: "Dhamma Vakya: Practice kindness",
+      dayName: "Monday",
+      images: ["https://via.placeholder.com/600x400"],
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      audioSrc: "https://www.w3schools.com/html/horse.mp3"
+    };
 
-        // ==========================================================
-        //  --- දත්ත වෙබ් පිටුවට සම්බන්ධ කිරීමේ logic එක ---
-        // ==========================================================
-        function loadDashboardData() {
-            // පෙළ දත්ත ඇතුළත් කිරීම
-            document.getElementById('display-year').innerText = MY_DASHBOARD_DATA.year;
-            document.getElementById('display-short-year').innerText = MY_DASHBOARD_DATA.shortYear;
-            document.getElementById('display-time').innerText = MY_DASHBOARD_DATA.timeText;
-            document.getElementById('display-logo-name').innerText = MY_DASHBOARD_DATA.logoName;
-            document.getElementById('display-poya').innerText = MY_DASHBOARD_DATA.poyaDay;
-            document.getElementById('display-vakya').innerText = MY_DASHBOARD_DATA.dhammaVakya;
-            document.getElementById('display-day-name').innerText = MY_DASHBOARD_DATA.dayName;
-            document.getElementById('display-video-title').innerText = MY_DASHBOARD_DATA.videoSectionTitle;
-            document.getElementById('display-audio-title').innerText = MY_DASHBOARD_DATA.audioTitle;
+    function loadDashboardData() {
+      document.getElementById('stats-content').textContent = MY_DASHBOARD_DATA.stats;
+      document.getElementById('poya').textContent = MY_DASHBOARD_DATA.poya;
+      document.getElementById('dhamma-vakya').textContent = MY_DASHBOARD_DATA.dhammaVakya;
+      document.getElementById('day-name').textContent = MY_DASHBOARD_DATA.dayName;
+      
+      // Load image
+      const imgContainer = document.getElementById('images');
+      imgContainer.innerHTML = `<img src="${MY_DASHBOARD_DATA.images[0]}" alt="Gallery Image" class="w-full h-full object-cover rounded"/>`;
 
-            // පින්තූර සම්බන්ධ කිරීම
-            document.getElementById('img-pc-left').src = MY_DASHBOARD_DATA.images.pcLeft;
-            document.getElementById('img-mobile-center').src = MY_DASHBOARD_DATA.images.mobileCenter;
-            document.getElementById('img-pc-right').src = MY_DASHBOARD_DATA.images.pcRight;
+      // Load video
+      const videoContainer = document.getElementById('video');
+      videoContainer.innerHTML = `<iframe class="w-full h-full" src="${MY_DASHBOARD_DATA.videoUrl}" frameborder="0" allowfullscreen></iframe>`;
 
-            // ඕඩියෝ සම්බන්ධ කිරීම
-            const audioPlayer = document.getElementById('audio-player');
-            const audioSource = document.getElementById('audio-source');
-            audioSource.src = MY_DASHBOARD_DATA.audioFileUrl;
-            audioPlayer.load();
+      // Load audio
+      const audioElement = document.getElementById('audio');
+      audioElement.src = MY_DASHBOARD_DATA.audioSrc;
+    }
 
-            // වීඩියෝ කාඩ්ස් ඩයිනමික්ව සෑදීම
-            const videoGrid = document.getElementById('video-grid');
-            videoGrid.innerHTML = ""; // කලින් තිබූ ඒවා ඉවත් කිරීම
-            
-            MY_DASHBOARD_DATA.videos.forEach(video => {
-                const videoCard = `
-                    <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
-                        <div class="aspect-video bg-black">
-                            <iframe class="w-full h-full" src="${video.embedUrl}" title="${video.title}" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="p-2 text-sm font-semibold text-center text-gray-700 bg-gray-50 border-t">
-                            ${video.title}
-                        </div>
-                    </div>
-                `;
-                videoGrid.innerHTML += videoCard;
-            });
-        }
+    function updateClock() {
+      const clock = document.getElementById('clock');
+      setInterval(() => {
+        clock.textContent = new Date().toLocaleTimeString();
+      }, 1000);
+    }
 
-        // Live Clock එක ක්‍රියාත්මක කිරීම
-        function startLiveClock() {
-            setInterval(() => {
-                const now = new Date();
-                document.getElementById('live-clock').innerText = now.toLocaleTimeString('si-LK');
-            }, 1000);
-        }
-
-        // පිටුව Load වන විට දත්ත පූරණය කිරීම
-        window.onload = function() {
-            loadDashboardData();
-            startLiveClock();
-        };
-    </script>
+    // Initialize
+    window.onload = () => {
+      loadDashboardData();
+      updateClock();
+    };
+  </script>
 </body>
-</html>
