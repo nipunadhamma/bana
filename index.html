@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nipunadhamma Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Siam', sans-serif; /* ඔබට කැමති සිංහල ෆොන්ට් එකක් මෙතනට දිය හැක */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+
+    <header class="bg-white shadow-sm p-4 flex justify-between items-center border-b border-gray-200">
+        <button class="text-2xl p-2 focus:outline-none hover:bg-gray-100 rounded">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="w-40 h-8 bg-gray-200 rounded border border-gray-300"></div>
+    </header>
+
+    <main class="flex-grow p-4 max-w-7xl mx-auto w-full space-y-6">
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+            <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex flex-col justify-center items-center min-h-[100px]">
+                <span class="text-sm text-red-600 font-bold">Year (Phone එකේදී පහළට)</span>
+                <span class="text-xl font-bold mt-1">2026</span>
+            </div>
+            
+            <div class="bg-white p-4 rounded-lg shadow border border-gray-200 md:col-span-2 flex flex-col justify-between min-h-[100px]">
+                <div class="font-bold text-lg">Logo / Name</div>
+                <div class="flex justify-between text-xs text-red-600 font-semibold px-2 mt-2">
+                    <span>year - short form</span>
+                    <span>Time</span>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex flex-col justify-center items-center min-h-[100px]">
+                <span class="text-sm text-red-600 font-bold">Clock</span>
+                <span class="text-xl font-bold mt-1">00:00:00</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center items-stretch">
+            <div class="bg-white p-6 rounded-lg shadow border border-gray-200 flex flex-col justify-center items-center order-2 md:order-1 min-h-[150px]">
+                <h3 class="font-bold text-xl mb-2 text-blue-800">Poya</h3>
+                <span class="text-red-500 font-bold text-lg">②</span>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow border border-blue-300 bg-blue-50/50 flex flex-col justify-center items-center order-1 md:order-2 min-h-[150px]">
+                <h3 class="font-bold text-xl text-blue-900 mb-2">දවසේ දහම් වැකිය.</h3>
+                <p class="text-sm text-red-600 font-semibold mb-2">Phone එකකදී වම් පසට සහ දකුණු පසට තියෙන කොටස් පහලට යන්න ඕනි.</p>
+                <span class="text-red-500 font-bold text-lg">①</span>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow border border-gray-200 flex flex-col justify-center items-center order-3 min-h-[150px]">
+                <h3 class="font-bold text-xl mb-2 text-blue-800">ඉරිදා (හෝ වෙනත් දවසක්)</h3>
+                <span class="text-red-500 font-bold text-lg">③</span>
+            </div>
+        </div>
+
+        <div class="bg-orange-50 border border-orange-200 rounded-lg shadow p-6 text-center">
+            <h3 class="font-bold text-lg mb-2 text-orange-800">Photos</h3>
+            <div class="grid grid-cols-3 gap-2 border border-dashed border-orange-400 p-4 rounded bg-white">
+                <div class="hidden md:block text-gray-400 text-sm py-8 bg-gray-50 rounded">PC Left View</div>
+                <div class="col-span-3 md:col-span-1 text-orange-600 font-bold py-8 bg-orange-100/50 rounded">For Mobile Center</div>
+                <div class="hidden md:block text-gray-400 text-sm py-8 bg-gray-50 rounded">PC Right View</div>
+            </div>
+        </div>
+
+        <div class="space-y-3">
+            <div class="font-bold text-lg flex items-center gap-2 text-indigo-900">
+                <span>Video - [ කොටස 01 ]</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden aspect-video flex items-center justify-center bg-gray-800 text-white font-semibold">
+                    Video 1
+                </div>
+                <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden aspect-video flex items-center justify-center bg-gray-800 text-white font-semibold">
+                    Video 2
+                </div>
+                <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden aspect-video flex items-center justify-center bg-gray-800 text-white font-semibold">
+                    Video 3
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow border border-gray-200 flex items-center justify-between">
+            <div class="font-bold text-md text-emerald-800 flex items-center gap-2">
+                <i class="fa-solid fa-music"></i>
+                <span>MP3 [ Audio ] Player Section</span>
+            </div>
+            <div class="w-1/2 bg-gray-100 h-8 rounded-full border border-gray-300 flex items-center justify-center text-xs text-gray-500">
+                Audio Controller Area
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-3 text-xs mt-10">
+        &copy; 2026 Nipunadhamma. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
