@@ -1,223 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STEP 1 CANVAS TEST</title>
 
-<title>Canva Mini PRO - STEP 18 CORE</title>
-
-<!-- ================= FABRIC ================= -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
 
-<!-- ================= CSS ================= -->
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/menu.css">
-<link rel="stylesheet" href="css/toolbar.css">
-<link rel="stylesheet" href="css/panels.css">
-<link rel="stylesheet" href="css/layers.css">
-<link rel="stylesheet" href="css/effects.css">
-<link rel="stylesheet" href="css/responsive.css">
-
 <style>
-body { margin:0; font-family:Arial; overflow:hidden; }
-
-/* TOP MENU */
-#topMenu {
-    height: 45px;
-    background: #222;
-    color: white;
-    display: flex;
-    align-items: center;
-}
-
-.menuItem {
-    padding: 10px 15px;
-    cursor: pointer;
-    position: relative;
-}
-
-.menuItem:hover { background:#333; }
-
-.dropdown {
-    display:none;
-    position:absolute;
-    top:45px;
-    left:0;
-    background:#111;
-    min-width:160px;
-    z-index:1000;
-}
-
-.menuItem:hover .dropdown {
-    display:block;
-}
-
-.dropdown button {
-    width:100%;
-    padding:8px;
-    background:none;
-    border:none;
-    color:white;
-    cursor:pointer;
-}
-
-.dropdown button:hover { background:#333; }
-
-/* LAYOUT */
-#main {
+body {
+    margin:0;
     display:flex;
-    height: calc(100vh - 45px);
-}
-
-/* LEFT */
-#leftPanel {
-    width:200px;
-    background:#eee;
-    padding:10px;
-}
-
-/* CANVAS */
-#canvasArea {
-    flex:1;
-    display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    background:#ddd;
+    font-family:Arial;
 }
 
-/* RIGHT */
-#rightPanel {
-    width:240px;
-    background:#eee;
-    padding:10px;
+#toolbar {
+    margin:10px;
 }
 
-/* FLOATING */
-.panel {
-    position:absolute;
-    top:100px;
-    left:100px;
-    background:white;
-    padding:10px;
-    border:1px solid #ccc;
-    z-index:999;
+button {
+    margin:5px;
+    padding:8px 12px;
 }
 
+canvas {
+    border:1px solid #333;
+}
 </style>
 
 </head>
 
 <body>
 
-<!-- ================= TOP MENU ================= -->
-<div id="topMenu">
+<h3>STEP 1 - Canvas Stable Test</h3>
 
-    <div class="menuItem">File
-        <div class="dropdown">
-            <button onclick="newProject()">New</button>
-            <button onclick="saveProject()">Save</button>
-            <button onclick="openProject()">Open</button>
-        </div>
-    </div>
-
-    <div class="menuItem">Edit
-        <div class="dropdown">
-            <button onclick="undo()">Undo</button>
-            <button onclick="redo()">Redo</button>
-        </div>
-    </div>
-
-    <div class="menuItem">Add
-        <div class="dropdown">
-            <button onclick="addText()">Text</button>
-            <button onclick="addRect()">Rect</button>
-            <button onclick="addCircle()">Circle</button>
-        </div>
-    </div>
-
-    <div class="menuItem">View
-        <div class="dropdown">
-            <button onclick="zoomIn()">Zoom In</button>
-            <button onclick="zoomOut()">Zoom Out</button>
-        </div>
-    </div>
-
-    <div class="menuItem">Effects
-        <div class="dropdown">
-            <button onclick="addShadow()">Shadow</button>
-            <button onclick="addGlow()">Glow</button>
-        </div>
-    </div>
-
+<div id="toolbar">
+<button onclick="addRect()">Rect</button>
+<button onclick="addCircle()">Circle</button>
+<button onclick="addText()">Text</button>
+<button onclick="clearCanvas()">Clear</button>
 </div>
 
-<!-- ================= MAIN ================= -->
-<div id="main">
+<canvas id="canvas"></canvas>
 
-    <!-- LEFT -->
-    <div id="leftPanel">
-        <h3>Assets</h3>
-        <h3>Layers</h3>
-        <div id="layerList"></div>
-    </div>
+<script>
 
-    <!-- CANVAS -->
-    <div id="canvasArea">
-        <canvas id="canvas"></canvas>
-    </div>
+let canvas;
 
-    <!-- RIGHT -->
-    <div id="rightPanel">
+// INIT
+window.onload = function () {
+    canvas = new fabric.Canvas("canvas", {
+        width: 800,
+        height: 500,
+        backgroundColor: "#f0f0f0"
+    });
+};
 
-        <h3>Properties</h3>
+// RECT
+function addRect() {
+    canvas.add(new fabric.Rect({
+        left: 100,
+        top: 100,
+        width: 120,
+        height: 120,
+        fill: "red"
+    }));
+}
 
-        <input type="color" onchange="setColor(this.value)">
-        <input type="number" onchange="setFontSize(this.value)">
+// CIRCLE
+function addCircle() {
+    canvas.add(new fabric.Circle({
+        left: 250,
+        top: 150,
+        radius: 60,
+        fill: "blue"
+    }));
+}
 
-        <hr>
+// TEXT
+function addText() {
+    canvas.add(new fabric.IText("Hello", {
+        left: 150,
+        top: 200,
+        fontSize: 20,
+        fill: "black"
+    }));
+}
 
-        <button onclick="lockObject()">Lock</button>
-        <button onclick="unlockObject()">Unlock</button>
+// CLEAR
+function clearCanvas() {
+    canvas.clear();
+}
 
-    </div>
-
-</div>
-
-<!-- ================= FLOATING PANELS ================= -->
-
-<div class="panel" id="effectsPanel">
-    <h4>Effects</h4>
-    <button onclick="addShadow()">Shadow</button>
-</div>
-
-<div class="panel" id="historyPanel">
-    <h4>History</h4>
-    <div id="historyList"></div>
-</div>
-
-<!-- ================= CORE SCRIPTS ================= -->
-
-<script src="js/core/config.js"></script>
-<script src="js/core/canvas.js"></script>
-
-<script src="js/engine/layers.js"></script>
-<script src="js/engine/effects-engine.js"></script>
-<script src="js/engine/crop.js"></script>
-
-<script src="js/tools/shapes.js"></script>
-<script src="js/tools/brush.js"></script>
-
-<script src="js/tools/text.js"></script>
-
-<script src="js/features/history.js"></script>
-<script src="js/features/export.js"></script>
-
-<script src="js/ui/menu.js"></script>
-
-<script src="js/app.js"></script>
-<script src="js/init.js"></script>
+</script>
 
 </body>
 </html>
