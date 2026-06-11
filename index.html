@@ -1,148 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Canva Mini PRO (Clean)</title>
+<title>Clean Canvas Test</title>
 
-<!-- ================= CSS ================= -->
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/menu.css">
-<link rel="stylesheet" href="css/toolbar.css">
-<link rel="stylesheet" href="css/panels.css">
-<link rel="stylesheet" href="css/canvas.css">
-<link rel="stylesheet" href="css/layers.css">
-<link rel="stylesheet" href="css/effects.css">
-<link rel="stylesheet" href="css/responsive.css">
-
-<!-- ================= FONT ================= -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- ================= FABRIC ================= -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+
+<style>
+body { margin:0; display:flex; flex-direction:column; align-items:center; }
+canvas { border:1px solid black; margin-top:10px; }
+button { margin:5px; }
+</style>
 
 </head>
 
 <body>
 
-<!-- ================= TOP MENU ================= -->
-<div id="topMenu">
+<h3>Canvas Test</h3>
 
-  <div class="menuItem">File</div>
-  <div class="menuItem">Edit</div>
-  <div class="menuItem">Image</div>
-  <div class="menuItem">Layer</div>
-  <div class="menuItem">View</div>
-  <div class="menuItem">Tools</div>
-  <div class="menuItem">Effects</div>
+<button onclick="addRect()">Rect</button>
+<button onclick="addCircle()">Circle</button>
+<button onclick="addText()">Text</button>
 
-</div>
+<canvas id="canvas"></canvas>
 
-<!-- ================= TOOLBAR ================= -->
-<div id="toolbar">
+<script>
+let canvas;
 
-    <button onclick="setTool('move')">Move</button>
-    <button onclick="addText()">Text</button>
-    <button onclick="addRect()">Rect</button>
-    <button onclick="addCircle()">Circle</button>
+// INIT
+window.onload = function () {
+    canvas = new fabric.Canvas("canvas", {
+        width: 800,
+        height: 500
+    });
+};
 
-    <button onclick="enableBrush()">Brush</button>
-    <button onclick="enableEraser()">Eraser</button>
+// RECT
+function addRect() {
+    canvas.add(new fabric.Rect({
+        left: 100,
+        top: 100,
+        width: 120,
+        height: 120,
+        fill: "red"
+    }));
+}
 
-    <button onclick="undo()">Undo</button>
-    <button onclick="redo()">Redo</button>
+// CIRCLE
+function addCircle() {
+    canvas.add(new fabric.Circle({
+        left: 200,
+        top: 150,
+        radius: 50,
+        fill: "blue"
+    }));
+}
 
-</div>
+// TEXT
+function addText() {
+    canvas.add(new fabric.IText("Hello", {
+        left: 150,
+        top: 200,
+        fontSize: 20,
+        fill: "black"
+    }));
+}
+</script>
 
-<!-- ================= WORKSPACE ================= -->
-<div id="workspace">
-
-    <!-- ONLY CANVAS -->
-    <div id="canvasWrapper">
-        <canvas id="canvas"></canvas>
-    </div>
-
-</div>
-
-<!-- ================= FLOATING PANELS ================= -->
-
-<!-- LAYERS -->
-<div id="layersPanel" class="floatingPanel">
-    <div class="panelHeader" id="dragLayers">Layers</div>
-    <div id="layerList"></div>
-</div>
-
-<!-- EFFECTS -->
-<div id="effectsPanel" class="floatingPanel">
-    <div class="panelHeader" id="dragEffects">Effects</div>
-
-    <button onclick="addEffect('shadow')">Shadow</button>
-    <button onclick="addEffect('glow')">Glow</button>
-    <button onclick="addEffect('outline')">Outline</button>
-    <button onclick="addEffect('blur')">Blur</button>
-
-    <hr>
-
-    <label>Color</label>
-    <input type="color" id="fxColor">
-
-    <label>Blur</label>
-    <input type="range" id="fxBlur" min="0" max="50">
-
-    <label>Opacity</label>
-    <input type="range" id="fxOpacity" min="0" max="1" step="0.1">
-
-</div>
-
-<!-- GRADIENT -->
-<div id="gradientPanel" class="floatingPanel">
-    <div class="panelHeader" id="dragGradient">Gradient</div>
-
-    <label>Color 1</label>
-    <input type="color" id="grad1">
-
-    <label>Color 2</label>
-    <input type="color" id="grad2">
-
-    <label>Angle</label>
-    <input type="range" min="0" max="360" id="gradAngle">
-
-    <button onclick="applyGradient()">Apply</button>
-</div>
-
-<!-- HISTORY -->
-<div id="historyPanel" class="floatingPanel">
-    <div class="panelHeader">History</div>
-    <div id="historyList"></div>
-</div>
-
-<!-- ASSETS -->
-<div id="assetsPanel" class="floatingPanel">
-    <div class="panelHeader">Assets</div>
-
-    <input type="file" onchange="uploadAsset(event)">
-    <div id="assetList"></div>
-</div>
-
-<!-- ================= SCRIPTS (CLEAN ORDER) ================= -->
-
-<script src="js/core/config.js"></script>
-<script src="js/core/canvas.js"></script>
-
-<script src="js/engine/layers.js"></script>
-<script src="js/engine/effects-engine.js"></script>
-<script src="js/engine/brush.js"></script>
-<script src="js/engine/crop.js"></script>
-
-<script src="js/features/text.js"></script>
-<script src="js/features/image.js"></script>
-<script src="js/features/export.js"></script>
-
-<script src="js/ui/menu.js"></script>
-
-<script src="js/app.js"></script>
-<script src="js/init.js"></script>
 </body>
 </html>
