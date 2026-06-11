@@ -1,33 +1,202 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<title>Clean Canvas Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canva Mini PRO FULL</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
 
 <style>
-body { margin:0; display:flex; flex-direction:column; align-items:center; }
-canvas { border:1px solid black; margin-top:10px; }
-button { margin:5px; }
+
+/* ================= BASIC UI ================= */
+body {
+    margin: 0;
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* ================= TOP MENU ================= */
+#topMenu {
+    display: flex;
+    background: #222;
+    color: white;
+}
+
+.menuItem {
+    padding: 10px 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.menuItem:hover {
+    background: #333;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #111;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.menuItem:hover .dropdown {
+    display: block;
+}
+
+.dropdown button {
+    width: 100%;
+    padding: 8px;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown button:hover {
+    background: #333;
+}
+
+/* ================= TOOLBAR ================= */
+#toolbar {
+    background: #f0f0f0;
+    padding: 10px;
+}
+
+/* ================= WORK AREA ================= */
+#workspace {
+    flex: 1;
+    display: flex;
+}
+
+/* LEFT */
+#leftPanel {
+    width: 180px;
+    background: #eee;
+    padding: 10px;
+}
+
+/* CANVAS */
+#canvasWrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ddd;
+}
+
+/* RIGHT */
+#rightPanel {
+    width: 220px;
+    background: #eee;
+    padding: 10px;
+}
+
+/* FLOATING PANELS */
+.panel {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 20;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<h3>Canvas Test</h3>
+<!-- ================= MENU ================= -->
+<div id="topMenu">
 
-<button onclick="addRect()">Rect</button>
-<button onclick="addCircle()">Circle</button>
-<button onclick="addText()">Text</button>
+    <div class="menuItem">
+        File
+        <div class="dropdown">
+            <button onclick="newCanvas()">New</button>
+            <button onclick="alert('Open')">Open</button>
+            <button onclick="alert('Save')">Save</button>
+        </div>
+    </div>
 
-<canvas id="canvas"></canvas>
+    <div class="menuItem">
+        Edit
+        <div class="dropdown">
+            <button onclick="undo()">Undo</button>
+            <button onclick="redo()">Redo</button>
+        </div>
+    </div>
 
+    <div class="menuItem">
+        Add
+        <div class="dropdown">
+            <button onclick="addText()">Text</button>
+            <button onclick="addRect()">Rect</button>
+            <button onclick="addCircle()">Circle</button>
+        </div>
+    </div>
+
+    <div class="menuItem">
+        Effects
+        <div class="dropdown">
+            <button onclick="addShadow()">Shadow</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- ================= TOOLBAR ================= -->
+<div id="toolbar">
+    <button onclick="addText()">Text</button>
+    <button onclick="addRect()">Rect</button>
+    <button onclick="addCircle()">Circle</button>
+    <button onclick="enableBrush()">Brush</button>
+</div>
+
+<!-- ================= WORKSPACE ================= -->
+<div id="workspace">
+
+    <div id="leftPanel">
+        <h3>Layers</h3>
+        <h3>Assets</h3>
+    </div>
+
+    <div id="canvasWrapper">
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div id="rightPanel">
+        <h3>Properties</h3>
+
+        <input type="color" onchange="setColor(this.value)">
+        <input type="number" onchange="setSize(this.value)">
+    </div>
+
+</div>
+
+<!-- ================= FLOATING PANELS ================= -->
+<div class="panel" id="layersPanel">
+    <h4>Layers</h4>
+</div>
+
+<div class="panel" id="effectsPanel">
+    <h4>Effects</h4>
+    <button onclick="addShadow()">Shadow</button>
+</div>
+
+<!-- ================= JS ================= -->
 <script>
+
 let canvas;
 
-// INIT
 window.onload = function () {
     canvas = new fabric.Canvas("canvas", {
         width: 800,
@@ -35,36 +204,83 @@ window.onload = function () {
     });
 };
 
-// RECT
+/* ================= BASIC TOOLS ================= */
+
 function addRect() {
     canvas.add(new fabric.Rect({
         left: 100,
         top: 100,
-        width: 120,
-        height: 120,
+        width: 100,
+        height: 100,
         fill: "red"
     }));
 }
 
-// CIRCLE
 function addCircle() {
     canvas.add(new fabric.Circle({
-        left: 200,
+        left: 150,
         top: 150,
         radius: 50,
         fill: "blue"
     }));
 }
 
-// TEXT
 function addText() {
-    canvas.add(new fabric.IText("Hello", {
-        left: 150,
+    canvas.add(new fabric.IText("Text", {
+        left: 200,
         top: 200,
-        fontSize: 20,
-        fill: "black"
+        fontSize: 20
     }));
 }
+
+/* ================= BASIC SYSTEM ================= */
+
+function newCanvas() {
+    canvas.clear();
+}
+
+function undo() {
+    alert("Undo (logic not added)");
+}
+
+function redo() {
+    alert("Redo (logic not added)");
+}
+
+function addShadow() {
+    let obj = canvas.getActiveObject();
+    if (!obj) return;
+
+    obj.set("shadow", new fabric.Shadow({
+        color: "black",
+        blur: 10,
+        offsetX: 5,
+        offsetY: 5
+    }));
+
+    canvas.renderAll();
+}
+
+function setColor(c) {
+    let obj = canvas.getActiveObject();
+    if (obj) {
+        obj.set("fill", c);
+        canvas.renderAll();
+    }
+}
+
+function setSize(s) {
+    let obj = canvas.getActiveObject();
+    if (obj && obj.fontSize) {
+        obj.set("fontSize", parseInt(s));
+        canvas.renderAll();
+    }
+}
+
+function enableBrush() {
+    canvas.isDrawingMode = true;
+}
+
 </script>
 
 </body>
