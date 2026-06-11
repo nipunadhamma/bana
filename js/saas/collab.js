@@ -27,3 +27,20 @@ window.listenCollab = function () {
 
     }, 2000);
 };
+
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "user@mail.com"
+    }
+  ],
+  "projects": [
+    {
+      "id": 101,
+      "userId": 1,
+      "name": "Design 1",
+      "data": {}
+    }
+  ]
+}
