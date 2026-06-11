@@ -8,3 +8,10 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
 }
+:root {
+    --primary: #00b7ff;
+    --bg: #121212;
+    --panel: #1f1f1f;
+    --hover: #2a2a2a;
+    --text: #ffffff;
+}
