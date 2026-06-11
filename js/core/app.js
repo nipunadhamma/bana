@@ -27,3 +27,54 @@ window.addEventListener("load", function () {
     }
 
 });
+
+// ===============================
+// SAFE CALL HELPER (NO CRASH ZONE)
+// ===============================
+
+window.safeCall = function (fn, ...args) {
+
+    try {
+        if (typeof fn === "function") {
+            return fn(...args);
+        }
+    } catch (e) {
+        console.error("⚠ Error:", e);
+    }
+};
+
+// ===============================
+// CANVAS SAFE CHECK SYSTEM
+// ===============================
+
+function getCanvasSafe() {
+
+    if (!window.canvas) {
+        console.warn("Canvas not ready");
+        return null;
+    }
+
+    return window.canvas;
+}
+// ===============================
+// GLOBAL ERROR CATCHER
+// ===============================
+
+window.addEventListener("error", function (e) {
+    console.error("💥 System Error:", e.message);
+});
+
+// ===============================
+// FINAL SYNC (LAYERS + CANVAS)
+// ===============================
+
+function fullSync() {
+
+    if (!canvas) return;
+
+    canvas.renderAll();
+
+    if (typeof updateLayers === "function") {
+        updateLayers();
+    }
+}
