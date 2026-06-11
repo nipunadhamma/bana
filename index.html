@@ -1,1 +1,60 @@
 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canva Mini PRO (Clean)</title>
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/menu.css">
+<link rel="stylesheet" href="css/toolbar.css">
+<link rel="stylesheet" href="css/layers.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+</head>
+
+<body>
+
+<!-- TOP MENU -->
+<div id="topMenu"></div>
+
+<!-- TOOLBAR -->
+<div id="toolbar">
+    <button onclick="addText()">Text</button>
+    <button onclick="addRect()">Rect</button>
+    <button onclick="addCircle()">Circle</button>
+</div>
+
+<!-- CANVAS -->
+<canvas id="canvas"></canvas>
+
+<!-- LAYERS -->
+<div id="layerPanel">
+    <div id="layerList"></div>
+</div>
+
+<!-- SCRIPTS (CLEAN ORDER) -->
+
+<script src="js/core/config.js"></script>
+<script src="js/core/canvas.js"></script>
+
+<script src="js/engine/layers.js"></script>
+<script src="js/engine/effects-engine.js"></script>
+<script src="js/engine/brush.js"></script>
+<script src="js/engine/crop.js"></script>
+
+<script src="js/features/text.js"></script>
+<script src="js/features/image.js"></script>
+<script src="js/features/export.js"></script>
+
+<script src="js/ui/menu.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/init.js"></script>
+
+</body>
+</html>
