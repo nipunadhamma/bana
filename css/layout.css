@@ -1,0 +1,28 @@
+#workspace {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* LEFT PANEL */
+#leftPanel {
+    width: 200px;
+    background: var(--panel);
+    padding: 10px;
+}
+
+/* CANVAS AREA */
+#canvasWrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+}
+
+/* RIGHT PANEL */
+#rightPanel {
+    width: 260px;
+    background: var(--panel);
+    padding: 10px;
+}
