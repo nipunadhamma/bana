@@ -1,123 +1,98 @@
-// =======================
-// 🎨 CORE CANVAS ENGINE
-// =======================
+// ===============================
+// CANVAS CORE ENGINE (CLEAN)
+// ===============================
 
-window.APP = window.APP || {};
+window.canvas = null;
 
-window.APP.canvas = null;
-
-// =======================
+// ===============================
 // INIT CANVAS
-// =======================
-window.APP.initCanvas = function () {
+// ===============================
+window.initCanvas = function () {
 
-    const canvasEl = document.getElementById("canvas");
-
-    if (!canvasEl) {
-        console.error("Canvas element not found!");
-        return;
-    }
-
-    window.APP.canvas = new fabric.Canvas(canvasEl, {
+    window.canvas = new fabric.Canvas("canvas", {
         width: 800,
         height: 500,
         backgroundColor: "#ffffff",
         preserveObjectStacking: true
     });
 
-    console.log("Canvas Initialized");
+    bindCanvasEvents();
 
-    window.APP.bindCanvasEvents();
+    console.log("✅ Canvas Initialized");
 };
 
-// =======================
-// GET CANVAS (SAFE ACCESS)
-// =======================
-window.getCanvas = function () {
-    return window.APP.canvas;
-};
 
-// =======================
-// NEW PROJECT / CLEAR
-// =======================
-window.newProject = function () {
+// ===============================
+// EVENTS
+// ===============================
+function bindCanvasEvents() {
 
-    const canvas = getCanvas();
+    canvas.on("selection:created", updateActiveObject);
+    canvas.on("selection:updated", updateActiveObject);
+    canvas.on("selection:cleared", clearActiveObject);
+
+    canvas.on("object:modified", saveState);
+    canvas.on("object:added", saveState);
+    canvas.on("object:removed", saveState);
+}
+
+
+// ===============================
+// ACTIVE OBJECT
+// ===============================
+window.APP = window.APP || {};
+window.APP.activeObject = null;
+
+function updateActiveObject(e) {
+    window.APP.activeObject = e.selected ? e.selected[0] : null;
+}
+
+function clearActiveObject() {
+    window.APP.activeObject = null;
+}
+
+
+// ===============================
+// CREATE PROJECT
+// ===============================
+window.newProject = function (w = 800, h = 500) {
+
     if (!canvas) return;
 
     canvas.clear();
-    canvas.setBackgroundColor("#ffffff", canvas.renderAll.bind(canvas));
+    canvas.setWidth(w);
+    canvas.setHeight(h);
+    canvas.backgroundColor = "#ffffff";
 
-    canvas.requestRenderAll();
+    canvas.renderAll();
 
-    if (window.rebuildLayersFromCanvas) {
-        window.rebuildLayersFromCanvas();
-    }
+    window.historyStack = [];
+    window.redoStack = [];
 
-    if (window.saveState) {
-        window.saveState();
-    }
+    saveState();
+
+    console.log("🆕 New Project Created");
 };
 
-// =======================
+
+// ===============================
 // RESIZE CANVAS
-// =======================
-window.resizeCanvas = function () {
+// ===============================
+window.resizeCanvas = function (w, h) {
 
-    const canvas = getCanvas();
     if (!canvas) return;
-
-    const w = parseInt(document.getElementById("canvasWidth").value);
-    const h = parseInt(document.getElementById("canvasHeight").value);
-
-    if (!w || !h) return;
 
     canvas.setWidth(w);
     canvas.setHeight(h);
+    canvas.renderAll();
 
-    canvas.requestRenderAll();
-
-    if (window.saveState) {
-        window.saveState();
-    }
+    saveState();
 };
 
-// =======================
-// CANVAS EVENTS
-// =======================
-window.APP.bindCanvasEvents = function () {
 
-    const canvas = getCanvas();
-    if (!canvas) return;
-
-    // selection change
-    canvas.on("selection:created", function (e) {
-        window.APP.activeObject = e.selected?.[0] || null;
-    });
-
-    canvas.on("selection:updated", function (e) {
-        window.APP.activeObject = e.selected?.[0] || null;
-    });
-
-    canvas.on("selection:cleared", function () {
-        window.APP.activeObject = null;
-    });
-
-    // object modified (for history)
-    canvas.on("object:modified", function () {
-        if (window.saveState) {
-            window.saveState();
-        }
-
-        if (window.updateLayers) {
-            window.updateLayers();
-        }
-    });
-
-    // object added
-    canvas.on("object:added", function () {
-        if (window.updateLayers) {
-            window.updateLayers();
-        }
-    });
+// ===============================
+// GET ACTIVE OBJECT SAFE
+// ===============================
+window.getActiveObject = function () {
+    return canvas ? canvas.getActiveObject() : null;
 };
