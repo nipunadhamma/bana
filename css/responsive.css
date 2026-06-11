@@ -1,0 +1,14 @@
+@media (max-width: 900px) {
+
+    #leftPanel {
+        display: none;
+    }
+
+    #rightPanel {
+        width: 200px;
+    }
+
+    #toolbar {
+        flex-direction: row;
+    }
+}
