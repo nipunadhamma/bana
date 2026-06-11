@@ -1,0 +1,10 @@
+.menuItem:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background: #111;
+    padding: 10px;
+}
