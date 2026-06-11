@@ -34,6 +34,10 @@ function bindCanvasEvents() {
     canvas.on("object:modified", saveState);
     canvas.on("object:added", saveState);
     canvas.on("object:removed", saveState);
+
+    canvas.on("object:added", saveHistory);
+    canvas.on("object:modified", saveHistory);
+    canvas.on("object:removed", saveHistory);
 }
 
 
