@@ -1,0 +1,13 @@
+#effectsPanel button {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+    background: #333;
+    color: white;
+    border: none;
+}
+
+#effectsPanel button:hover {
+    background: var(--primary);
+}
