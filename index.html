@@ -1,99 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="si">
 <head>
-<meta charset="UTF-8">
-<title>STEP 1 CANVAS TEST</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
-
-<style>
-body {
-    margin:0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    font-family:Arial;
-}
-
-#toolbar {
-    margin:10px;
-}
-
-button {
-    margin:5px;
-    padding:8px 12px;
-}
-
-canvas {
-    border:1px solid #333;
-}
-</style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <h1>පුස්තකාලය</h1>
+    <input type="text" id="search" placeholder="සෙවුම් පද මෙතන යොදන්න...">
+    <div id="container"></div>
 
-<h3>STEP 1 - Canvas Stable Test</h3>
-
-<div id="toolbar">
-<button onclick="addRect()">Rect</button>
-<button onclick="addCircle()">Circle</button>
-<button onclick="addText()">Text</button>
-<button onclick="clearCanvas()">Clear</button>
-</div>
-
-<canvas id="canvas"></canvas>
-
-<script>
-
-let canvas;
-
-// INIT
-window.onload = function () {
-    canvas = new fabric.Canvas("canvas", {
-        width: 800,
-        height: 500,
-        backgroundColor: "#f0f0f0"
-    });
-};
-
-// RECT
-function addRect() {
-    canvas.add(new fabric.Rect({
-        left: 100,
-        top: 100,
-        width: 120,
-        height: 120,
-        fill: "red"
-    }));
-}
-
-// CIRCLE
-function addCircle() {
-    canvas.add(new fabric.Circle({
-        left: 250,
-        top: 150,
-        radius: 60,
-        fill: "blue"
-    }));
-}
-
-// TEXT
-function addText() {
-    canvas.add(new fabric.IText("Hello", {
-        left: 150,
-        top: 200,
-        fontSize: 20,
-        fill: "black"
-    }));
-}
-
-// CLEAR
-function clearCanvas() {
-    canvas.clear();
-}
-
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
