@@ -4,6 +4,11 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 const params = new URLSearchParams(location.search);
 let file = params.get("file");
 
+if (!file) {
+    alert("PDF file not found!");
+    throw new Error("No PDF file provided in URL");
+}
+
 let pdfDoc = null;
 let pageNum = 1;
 let scale = 1.5;
