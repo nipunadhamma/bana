@@ -82,9 +82,7 @@ a.download="";
 a.click();
 };
 
----
-
-# 🔗 SHARE BUTTON (FB + link copy)
+// 🔗 SHARE BUTTON (FB + link copy)
 
 document.getElementById("share").onclick = ()=>{
 
@@ -102,17 +100,13 @@ window.open(
 alert("Link copied + Facebook share opened!");
 };
 
----
-
-# 🌙 DARK MODE
+// DARK MODE
 
 document.getElementById("theme").onclick=()=>{
-document.body.classList.toggle("dark");
+  document.body.classList.toggle("dark");
 };
 
----
-
-# 🔖 SAVE LAST PAGE
+// SAVE LAST PAGE
 
 function saveLastPage(p){
 localStorage.setItem(file+"_page", p);
