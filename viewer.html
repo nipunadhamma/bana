@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="si">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Viewer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Reader</title>
 
-    <link rel="stylesheet" href="viewer.css">
+<link rel="stylesheet" href="viewer.css">
+
 </head>
 
 <body>
 
-    <div class="toolbar">
+<div class="topbar">
 
-        <button id="prev">◀</button>
+<button id="menu">☰</button>
 
-        <span id="pageInfo">1 / 1</span>
+<button id="prev">◀</button>
 
-        <button id="next">▶</button>
+<span id="pageInfo">1/1</span>
 
-        <button id="zoomOut">−</button>
+<button id="next">▶</button>
 
-        <button id="zoomIn">+</button>
+<button id="zoomOut">−</button>
 
-        <button id="download">⬇ Download</button>
+<button id="zoomIn">+</button>
 
-    </div>
+<button id="share">🔗 Share</button>
 
-    <div id="viewerContainer">
+<button id="download">⬇</button>
 
-        <canvas id="pdfCanvas"></canvas>
+<button id="theme">🌙</button>
 
-    </div>
+</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<div class="layout">
 
-    <script src="viewer.js"></script>
+<!-- Sidebar -->
+<div id="sidebar"></div>
+
+<!-- Viewer -->
+<div id="viewerContainer">
+<canvas id="pdfCanvas"></canvas>
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="viewer.js"></script>
 
 </body>
-
 </html>
