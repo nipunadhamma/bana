@@ -23,6 +23,19 @@ rel="stylesheet">
 <header>
 
 <h1>බෞද්ධ ග්‍රන්ථ එකතුව</h1>
+  <div class="header-actions">
+
+        <!-- Home -->
+        <button class="icon-btn" onclick="goHome()" title="මුල් පිටුව">
+            <span class="material-icons">home</span>
+        </button>
+
+        <!-- Dark Mode -->
+        <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="Dark Mode">
+            <span class="material-icons" id="themeIcon">dark_mode</span>
+        </button>
+
+    </div>
 
 </header>
 
@@ -35,6 +48,49 @@ rel="stylesheet">
 </div>
 
 <script src="script.js"></script>
+
+  <script>
+
+// ===========================
+// Home Button
+// ===========================
+
+function goHome() {
+   window.location.href = "https://nipunadhamma.org";
+    // index.html same folder එකේ නම්:
+    // window.location.href="index.html";
+}
+
+// ===========================
+// Dark Mode
+// ===========================
+
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme==="dark"){
+    document.body.classList.add("dark");
+    document.getElementById("themeIcon").textContent="light_mode";
+}
+
+function toggleTheme(){
+
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+
+        localStorage.setItem("theme","dark");
+        document.getElementById("themeIcon").textContent="light_mode";
+
+    }else{
+
+        localStorage.setItem("theme","light");
+        document.getElementById("themeIcon").textContent="dark_mode";
+
+    }
+
+}
+
+</script>
 
 </body>
 
