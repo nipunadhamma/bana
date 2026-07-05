@@ -84,20 +84,21 @@ a.click();
 
 // 🔗 SHARE BUTTON (FB + link copy)
 
-document.getElementById("share").onclick = ()=>{
+document.getElementById("share").onclick = () => {
 
 let url = window.location.href;
 
-// Copy link
+// copy link
 navigator.clipboard.writeText(url);
 
-// Facebook share
+// facebook share
 window.open(
-"https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url),
+"https://www.facebook.com/sharer/sharer.php?u=" +
+encodeURIComponent(url),
 "_blank"
 );
 
-alert("Link copied + Facebook share opened!");
+alert("Link copied & Facebook opened!");
 };
 
 // DARK MODE
