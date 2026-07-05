@@ -1,5 +1,6 @@
+
 [
-  { "name": "රේරුකාණේ චන්දවිමල හිමි", "link": "buddhitbooks/ReChandavimalaThero" },
-  { "name": "දොලොස්වල උදිතධීර හිමි", "link": "buddhitbooks/DUdithadeeraThero/index.html" }, 
-  { "name": "දහම් සගරා", "link": "buddhitbooks/commenbooks/" }
+  { "name": "රේරුකානේ චන්ද්‍රවිමල හිමි", "path": "buddhitbooks/ReChandavimalaThero/index.html" }
+  { "name": "දොලොස්වල උදිතධීර හිමි", "path": "buddhitbooks/DUdithadeeraThero/index.html" },
+  { "name": "දහම් සගරා", "path": "buddhitbooks/commenbooks/index.html" }
 ]
