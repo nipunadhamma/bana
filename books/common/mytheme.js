@@ -51,7 +51,7 @@ if (!localStorage.getItem("theme")) {
 
 /* =========================
    PWA SERVICE WORKER
-========================= */
+========================= 
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -60,7 +60,7 @@ if ("serviceWorker" in navigator) {
       .then(() => console.log("Service Worker Registered"))
       .catch((err) => console.error("SW Error:", err));
   });
-}
+}  */
 
 /* =========================
    THEME COLOR META UPDATE
