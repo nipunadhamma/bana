@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>පහාන සංඥා භාවනාව - විදර්ශනා භාවනාව</title>
+
+    <meta name="description" content="විදර්ශනා භාවනාව - දොලොස්වල උදිතධීර හිමි">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="ත්‍රිපිටකය ආශ්‍රිත පොත්">
+    <meta name="keywords"
+       content="Buddhist books, dhamma, pitaka, tripitaka, dharmadesana,  nipunadhamma, meditation, Sinhala books">
+
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#4e342e">
+    
+    <!-- ================= VIEWPORT ================= -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#5d4037">
+
+    <!-- ================= OPEN GRAPH ================= -->
+    <meta property="og:title" content="ත්‍රිපිටකය ආශ්‍රිත පොත්">
+    <meta property="og:description" content="මෙම පොත නිපුණධම්ම පුස්තකාලය මගින් ලබා දී ඇත">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://i.postimg.cc/Hx1hyKdc/og-books-500x300.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="300">
+
+    <!-- ================= TWITTER CARD ================= -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ත්‍රිපිටකය ආශ්‍රිත පොත්">
+    <meta name="twitter:description" content="මෙම පොත නිපුණධම්ම පුස්තකාලය මගින් ලබා දී ඇත">
+    <meta name="twitter:image" content="https://i.postimg.cc/Hx1hyKdc/og-books-500x300.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="පහාන සංඥා භාවනාව - විදර්ශනා භාවනාව">
+    <meta property="og:description" content="විදර්ශනා භාවනාව - දොලොස්වල උදිතධීර හිමි">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="../common/cover.jpg">
+    
+    <!-- ================= PWA ================= -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="../common/manifest.json">
+    <meta name="theme-color" content="#5d4037">
+
+    <link rel="canonical" href="https://www.books.nipunadhamma.org">
+    <link rel="icon" href="../common/favicon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../common/favicon-96x96.png">
+    <link rel="stylesheet" href="../common/book.css">
+    <link rel="stylesheet" href="../common/mybook.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- TOP NAV BAR -->
+    <header>
+    
+        <h1>පොත් ලැයිස්තුව</h1>
+    
+        <div class="header-actions">
+    
+            <!-- FONT - BUTTON -->
+            <button class="icon-btn" onclick="changeFont(-1)" title="Decrease Font">
+                <span class="material-icons">text_decrease</span>
+            </button>
+    
+            <!-- FONT + BUTTON -->
+            <button class="icon-btn" onclick="changeFont(1)" title="Increase Font">
+                <span class="material-icons">text_increase</span>
+            </button>
+
+            <!-- Bookmark -->
+            <button class="icon-btn" onclick="goBookmarks()" title="සුරකින ලද පිටු">
+                <span class="material-icons">bookmark</span>
+            </button>
+    
+            <!-- Home -->
+            <button class="icon-btn" onclick="goHome()" title="මුල් පිටුව">
+                <span class="material-icons">home</span>
+            </button>
+    
+            <!-- Dark Mode -->
+            <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="Dark Mode">
+                <span class="material-icons" id="themeIcon">dark_mode</span>
+            </button>
+    
+        </div>
+    
+    </header>
+    <body>
+        <div book-folder="." style="width: 100%; 
+              max-width: 90%; 
+              margin: 0pt auto; 
+              height: 100%; 
+              display: flex; 
+              flex-flow: column; 
+              align-content: center;">
+
+
+    <!-- READING PROGRESS BAR -->
+    <div id="progress"></div>
+
+    <!-- BOOK CONTENT -->
+    <main class="reader">
+
+        <div class="content">
+  <nav class="top"><a class="button" href="../index.html"><i class="material-icons">home</i></a><i class="material-icons">navigate_next</i><a class="button" href="index.html#12"><i class="material-icons">toc</i>විදර්ශනා භාවනාව</a><i class="material-icons">navigate_next</i></nav>
+  <div class="heading-bar">
+    <h1>පහාන සංඥා භාවනාව</h1><i class="material-icons star-icon undefined" data-bookmark="{&quot;ids&quot;:[12],&quot;headings&quot;:[&quot;පහාන සංඥා භාවනාව&quot;],&quot;book&quot;:{&quot;name&quot;:&quot;විදර්ශනා භාවනාව&quot;,&quot;folder&quot;:&quot;vidarshana-bhawana&quot;}}">star_outline</i><i class="material-icons share-icon" file-name="12.html">share</i>
+  </div>
+  <p>​සිත තුළ උපදින අකුසල සිතුවිලි හෙවත් අකුසල විතර්කයන් සිහියෙන් දැනගෙන, නුවණින් යුතුව දුරු කිරීම, බැහැර කිරීම සහ ඉවත් කිරීම පහාන සංඥා භාවනාවයි. මෙය <b><i>'පහාන අනුපස්සනා ඥානය'</i></b> යන නමින් ද හඳුන්වනු ලැබේ.</p>
+  <p>පහාන සංඥා භාවනාව වඩන පිළිවෙළ (කාම විතර්ක ප්‍රහාණය)</p>
+  <p>​මෙම භාවනා ක්‍රමය වඩනු කැමති සත්පුරුෂයා විසින් තමාගේ සිත තුළ කාම සිතුවිල්ලක් (කාම විතර්කයක්) උපන් කල්හි, එය පහත සඳහන් ආකාරයට නුවණින් මෙනෙහි කරමින් ආදීනව (දෝෂ) පරීක්ෂා කළ යුතු වේ:</p>
+  <p>​අකුසලයක් බව දැකීම: මෙම කාම සිතුවිල්ල අකුසලයකි; වැරදි සහගත දෙයකි.</p>
+  <p>​ දුක් විපාක ඇති කරන දෙයකි.</p>
+  <p>​ආත්ම පරහිත පීඩාව වටහා ගැනීම:</p>
+  <p>​මෙය තමාට අයහපත පිණිස පවතින දෙයකි.</p>
+  <p>​අනුන්ට අයහපත පිණිස, දුක පිණිස පවතින දෙයකි.</p>
+  <p>​තමාටත් අනුන්ටත් යන දෙපාර්ශවයටම අයහපත පිණිස සහ දුක පිණිසම පවතින දෙයකි.</p>
+  <p>​කාම විතර්කයෙහිදී ක්‍රියා කළ යුතු ආකාරය</p>
+  <p>​මෙසේ කාම විතර්කයෙහි ආදීනව හෙවත් දෝෂයන් නුවණින්ම පරීක්ෂා කර බලා, අරමුණෙහි උපන් ඒ කාම විතර්කය ඉවසීමක් නොකළ යුතුය.</p>
+  <p>​එම අකුසල සිතුවිල්ල සිතට නොගෙන වහාම ඉවත් කළ යුතු අතර, සිත තුළ තවදුරටත් රැඳී සිටීමට හෝ වාසය කිරීමට ඉඩ නොදී බැහැර කළ යුතු වේ.</p>
+  <p>ව්‍යාපාද සහ විහිංසා විතර්ක ප්‍රහාණය කරන පිළිවෙළ</p>
+  <p>​කාම විතර්කය මෙන්ම, සිත තුළ උපදින ව්‍යාපාද විතර්ක සහ විහිංසා විතර්ක ද අකුසල් සහගත බවත්, තමාටත් අනුන්ටත් දෙපාර්ශවයටම අයහපත හා දුක පිණිස පවතින බවත් නුවණින් විමසා බලා වහාම දුරු කළ යුතුය; සිත තුළ රඳවා නොගෙන බැහැර කළ යුතුය.</p>
+  <p>​විතර්කයන්ගේ ස්වභාවය සහ හඳුනා ගැනීම (ලක්ෂණ)</p>
+  <p>​පහාන සංඥාව නිවැරදිව වැඩීම පිණිස මෙම අකුසල විතර්කයන් ත්‍රිත්වයෙහි ස්වභාවය මෙසේ හඳුනාගත යුතුය:</p>
+  <p>​1. කාම විතර්ක</p>
+  <p>​ස්වභාවය: ඉෂ්ට (කැමති) වූ රූප, ශබ්ද, ගන්ධ, රස සහ ස්පර්ශයන් පිළිබඳව සිත තුළ ඇති වන, ඇලෙන්නා වූ රාග සහගත සිතුවිලි සමූහයයි.</p>
+  <p>​2. ව්‍යාපාද විතර්ක</p>
+  <p>​ස්වභාවය: අනිෂ්ට (අකමැති) වූ රූප, ශබ්ද, ගන්ධ, රස, ස්පර්ශයන් සහ සිතුවිලි ලැබීම නිසාත්, ඒ පිළිබඳව අයෝනිසෝ මනසිකාරයෙන් (නුවණින් තොරව) නැවත නැවත කල්පනා කිරීම නිසාත් ඇති වන සිතුවිලි වේ.</p>
+  <p>​ලක්ෂණ: සිත තුළ හටගන්නා තරහව, වෛරය, ක්‍රෝධය, කෝපය සහ පළිගැනීමේ අදහස් වැනි සියලු ද්වේෂ සහගත සිතුවිලි මෙයට අයත් වේ.</p>
+  <p>​3. විහිංසා විතර්ක</p>
+  <p>​ස්වභාවය: අනුන්ට දුක පිණිස සහ අයහපත පිණිස පවතින දෑ කිරීම පිළිබඳව සිත තුළ හටගන්නා දරුණු සිතුවිලි වේ.</p>
+  <p>​ලක්ෂණ: අන් අයට හිංසා කිරීමට, පීඩා කිරීමට, ගැසීමට, බැනීමට, දොස් පැවරීමට, නින්දා හා අපහාස කිරීමට මෙන්ම අන්සතු දේ කඩා බිඳ දැමීමට සිතන සියලු හිංසාකාරී සිතුවිලි මෙයට අයත් වේ.</p>
+  <p>4. උපන්නුප්පන්න පාපක අකුසල ධර්ම ප්‍රහාණය</p>
+  <p>​<b>'උපන්නුප්පන්නේ පාපකේ අකුසලේ ධම්මේ</b>' හෙවත් උපදින උපදින පාපක අකුසල ධර්මයන් යනුවෙන් සූත්‍ර දේශනාවෙහි සඳහන් කර ඇත්තේ, තමාගේ සිත තුළ කලින් කලට අලුතින් උපදින්නා වූ සියලුම ආකාරයේ පාපක අකුසල් සිතුවිලි වේ.</p>
+  <p>​සිත තුළ කාම, ව්‍යාපාද, විහිංසා යන මූලික විතර්කයන්ට අමතරව පහත දැක්වෙන මොනම ආකාරයේ අකුසල් සිතුවිල්ලක් ඉපදුනත් මෙම ක්‍රමවේදයට අනුවම නුවණින් විමසා බැහැර කළ යුතු වේ:</p>
+  <p>​අකුසල් සිතුවිලි හඳුනා ගැනීම: තරහව, වෛරය, කෝපය, මානය (උඩඟුකම), ඉරිසියාව ආදී මොන ආකාරයේ අකුසල් සිතුවිල්ලක් සිත තුළ ඉපදුනත්,</p>
+  <p>​නුවණින් විමසන පිළිවෙළ: ඒ සෑම අකුසල් සිතුවිල්ලක්ම;</p>
+  <p>​අකුසලයකි, වැරදි සහගත දෙයකි, දුක් සහගත දෙයකි.</p>
+  <p>​තමාට අයහපත පිණිස පවතින දෙයකි.</p>
+  <p>​අනුන්ට අයහපත පිණිස පවතින දෙයකි.</p>
+  <p>​තමාටත් අනුන්ටත් යන දෙපිරිසටම අයහපත පිණිසම පවතින දෙයකි.</p>
+  <p>​මෙසේ එහි ඇති ආදීනවත්, අනිසි විපාකත් නුවණින් මැනවින් විමසා බලා, එම උපදින උපදින අකුසල ධර්මයන් සිත තුළ රඳවා නොගෙන වහාම බැහැර කළ යුතුය.</p>
+  <nav class="bottom"><a class="button prev" href="11.html"><i class="material-icons">arrow_back</i>ආදීනව සංඥා භාවනාව</a><a class="button next" href="13.html">විරාග සංඥා භාවනාව <i class="material-icons">arrow_forward</i></a></nav>
+</div>
+
+    </main>
+
+   
+
+    <!-- INFO FOOTER -->
+    <footer class="site-footer">
+    
+        <p class="footer-text">
+            📜 මෙම පොත නිපුණධම්ම පුස්තකාලය මගින් ලබා දී ඇත.<br>
+            තවත් වටිනා දහම් කරුණු දැන ගැනීමට
+            <a href="https://www.nipunadhamma.org/" target="_blank">nipunadhamma.org</a>
+        </p>
+    
+        <div class="social-links">
+    
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/" target="_blank" title="YouTube">
+                <span class="material-icons">smart_display</span>
+            </a>
+    
+            <!-- Facebook -->
+            <a href="https://facebook.com/" target="_blank" title="Facebook">
+                <span class="material-icons">facebook</span>
+            </a>
+    
+            <!-- Telegram -->
+            <a href="https://t.me/" target="_blank" title="Telegram">
+                <span class="material-icons">send</span>
+            </a>
+    
+        </div>
+        
+    
+    </footer>
+    </div>
+    <script src="../common/jquery-3.4.1.min.js"></script>
+    <script src="../common/clipboard.min.js"></script>
+    <script src="../common/book.js"></script>
+    <script src="../common/mytheme.js"></script>
+    </body>
+    
+    </html>
