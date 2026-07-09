@@ -19,19 +19,16 @@ $(document).keydown(function (e) {
     e.preventDefault(); // prevent the default action (scroll / move caret)
 });
 
-const clipb = new ClipboardJS('.share-icon', {
-    text: function (icon) {
+const clipb = new ClipboardJS(".share-icon", {
+  text: function (icon) {
+    const bookmarkData = JSON.parse(
+      icon.parentElement.querySelector(".star-icon").dataset.bookmark,
+    );
 
-        const bookmarkData =
-            JSON.parse(
-                icon.parentElement.querySelector('.star-icon')
-                    .dataset.bookmark
-            );
+    const bookFolder = bookmarkData.book.folder;
 
-        const bookFolder = bookmarkData.book.folder;
-
-        return `https://books.nipunadhamma.org/books/${bookFolder}/${icon.getAttribute('file-name')}`;
-    }
+    return `https://books.nipunadhamma.org/books/${bookFolder}/${icon.getAttribute("file-name")}`;
+  },
 });
 clipb.on('success', e => showToast('link එක copy කර ගත්තා. ඔබට අවශ්‍ය තැන paste කරන්න.'));
 
