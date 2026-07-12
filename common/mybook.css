@@ -406,6 +406,63 @@ body.dark .social-links a {
     visibility: visible;
     animation: fadeIn 0.5s, fadeOut 0.5s 2s;
 }
+/* =========================
+   BOOK TITLE
+========================= */
+
+.book-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 30px auto;
+}
+
+
+/* =========================
+   SUTTA PALI
+========================= */
+
+.sutta-pali {
+
+    text-align: center;
+
+    font-size: 1.3rem;
+
+    font-weight: 700;
+
+    line-height: 1.8;
+
+    margin: 25px auto;
+
+}
+
+
+/* =========================
+   SUTTA LOCATION
+========================= */
+
+.sutta-path {
+
+    text-align: center;
+
+    font-size: 0.9rem;
+
+    color: #666;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================
+   SEO HIDDEN
+========================= */
+
+.seo-tags {
+
+    display: none;
+
+}
 
 @keyframes fadeIn {
     from {
