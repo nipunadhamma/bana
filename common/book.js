@@ -21,21 +21,46 @@ $(document).keydown(function (e) {
 
 const clipb = new ClipboardJS(".share-icon", {
   text: function (icon) {
-    const bookmarkData = JSON.parse(
-      icon.parentElement.querySelector(".star-icon").dataset.bookmark,
-    );
+    let url = "";
+
+    const star = icon.parentElement.querySelector(".star-icon");
+
+    // Book index page share
+    if (!star) {
+      const folder = icon.parentElement.getAttribute("book-folder");
+
+      url = `https://books.nipunadhamma.org/books/${folder}/index.html`;
+
+      return url;
+    }
+
+    // Chapter page share
+    const bookmarkData = JSON.parse(star.dataset.bookmark);
 
     const bookFolder = bookmarkData.book.folder;
 
     return `https://books.nipunadhamma.org/books/${bookFolder}/${icon.getAttribute("file-name")}`;
   },
 });
-clipb.on('success', e => showToast('link එක copy කර ගත්තා. ඔබට අවශ්‍ය තැන paste කරන්න.'));
 
-function showToast(toastMsg) {
-    var toast = $('#toast').text(toastMsg).show();
-    // After 3 seconds, remove the show class from DIV
-    setTimeout(function () { toast.hide(); }, 3000);
+clipb.on("success", (e) =>
+  showToast("link එක copy කර ගත්තා. ඔබට අවශ්‍ය තැන paste කරන්න."),
+);
+
+
+function showToast(message) {
+  let toast = document.getElementById("toast");
+
+  if (!toast) {
+    return;
+  }
+
+  toast.innerHTML = message;
+  toast.className = "show";
+
+  setTimeout(function () {
+    toast.className = "";
+  }, 3000);
 }
 
 const cssColors = {
