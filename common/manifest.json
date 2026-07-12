@@ -1,6 +1,6 @@
 {
-  "name": "Buddhist Library",
-  "short_name": "Buddha Books",
+  "name": "Nipunadamma Library",
+  "short_name": "Dhaham Poth",
   "description": "Free Buddhist Books Reader - Sinhala Dharma Library",
   "start_url": "./index.html",
   "display": "standalone",
